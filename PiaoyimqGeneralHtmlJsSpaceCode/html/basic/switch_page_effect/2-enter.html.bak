@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>页面的进入效果</title>
+<meta http-equiv="page-enter" content="revealtrans(duration=10,transition=2)"/>
+</head>
+<body bgcolor="#FFCC99">
+<center><h2>显示页面的进入效果</h2>
+<img src="images/2.jpg" width="498" height="462" /><br /><br />
+<a href="2-gd.html">返回</a>
+</center>
+</body>
+</html>
