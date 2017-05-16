@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>幻灯片</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #picBox{
+        margin:10px auto;
+        width:auto;
+        height:auto;
+    }
+    #pic{
+        width:auto;
+        height:auto;
+
+    }
+    #buttonBox{
+        width:100px;
+        margin:20px;
+    }
+</style>
+<body>
+<div id="picBox">
+  <div id="buttonBox">
+    <input type="button" value="上一张" onclick=pre();>
+    <input type="button" value="下一张" onclick=next();>
+  </div>
+  <img src="s1.jpg" id="pic">
+  
+</div>
+<script>
+    var picArr=new Array("s1.jpg","s2.jpg","s3.jpg","s4.jpg");
+    var index=0;
+    function next(){
+        index++;
+        if(index==picArr.length){
+            index=0;
+        }
+        document.getElementById("pic").src=picArr[index];
+    }
+    
+    
+    function pre(){
+        index--;
+        if(index<0){
+            index=picArr.length-1;
+        }
+        document.getElementById("pic").src=picArr[index];
+    }
+
+// Get folder
+var picturesLibrary = Windows.Storage.KnownFolders.picturesLibrary;
+
+//  Get folder contents
+picturesLibrary.getItemsAsync().then(function (items) {
+    // Then perform tasks with the list of files and folders that was retrieved
+
+    // For example, display name of containing folder and count of items in folder
+    outputHeader(picturesLibrary.name, items.size);
+
+    // For example, display info for each item
+    items.forEach(function (item) { 
+        if (item.isOfType(Windows.Storage.StorageItemTypes.folder)) { 
+            output(id(picturesLibrary.name), item.name + "\\"); 
+        } 
+        else { 
+            output(id(picturesLibrary.name), item.fileName); 
+        } 
+    }); 
+});
+//  var   fso   =   new ActiveXObject("Scripting.FileSystemObject");
+//var   files   =   new   Array();
+//var   global=   1;
+//function   getFolder(path)
+//{
+//    var   f   =   fso.GetFolder(path);
+////      var   fc   =   new   Enumerator(f.SubFolders);     //所有的子目录集合
+////    var   s   =   " ";
+// //   for   (;   !fc.atEnd();   fc.moveNext())
+//  //  {
+//   //       s   +=   fc.item();
+//    //      s   +=   " <br> \r\n ";
+//    //}
+//    
+//    var   ff   =   new   Enumerator(f.Files);     //该目录下所有的文件集合
+//    for   (;   !ff.atEnd();   ff.moveNext())
+//    {  
+//          files[files.length]   =   ff.item();   //把该目录下的所有文件路径都放在一个数组里.
+//          s   +=   ff.item();
+//          s   +=   " <br> \r\n ";
+//         console.log("%s",ff.item());
+//    setValue();
+//    return(s);
+//}
+//}
+
+</script>
+
+
+</body>
+</html>
