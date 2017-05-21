@@ -8,13 +8,14 @@
 			function getImgList() {
 				var fs = require("fs");
 				var path = require("path");
-				var specificPath= path.resolve();
+				var specificPath= "C:\\Users\\Administrator\\Desktop\\pic";//path.resolve()
 				var li = fs.readdirSync(specificPath);
+				console.log(li);
 				var imgArr = [];
 				for(var i = 0; i < li.length; i++) {
 					stats = fs.statSync(path.join(specificPath, li[i]));
 					if(stats.isFile() && (li[i].indexOf(".jpg") >= 0)) {
-						imgArr.push(li[i]);
+						imgArr.push("file:///"+(path.join(specificPath, li[i])));
 					}
 				}
 
@@ -69,7 +70,9 @@
 
 	<body>
 		<div id="picBox">
-			<img src=""  id="pic" >
+			<!--输入文件夹路径：<input type="text" id="file" value="C:\\Users\\Administrator\\Desktop\\pic">
+			<input type="submit" value="Submit" onclick="setPath()">-->
+			<img src="" alt="No pictures" id="pic" >
 			<script>
 //				document.write("<img src='' id='pic'>");
 				document.getElementById("pic").src = fileArr[0]; //use a non asyonous function
