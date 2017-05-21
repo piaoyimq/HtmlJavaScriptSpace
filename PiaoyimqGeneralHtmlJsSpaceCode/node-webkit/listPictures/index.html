@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>看图</title>
+		<script>
+			function getImgList() {
+				var fs = require("fs");
+				var path = require("path");
+				var specificPath= path.resolve();
+				var li = fs.readdirSync(specificPath);
+				var imgArr = [];
+				for(var i = 0; i < li.length; i++) {
+					stats = fs.statSync(path.join(specificPath, li[i]));
+					if(stats.isFile() && (li[i].indexOf(".jpg") >= 0)) {
+						imgArr.push(li[i]);
+					}
+				}
+
+				console.log(imgArr);
+				return imgArr;
+			}
+
+			var fileArr = getImgList();
+
+			var index = 0;
+
+			function next() {
+				index++;
+				if(index == fileArr.length) {
+					index = 0;
+				}
+				document.getElementById("pic").src = fileArr[index];
+			}
+
+			function pre() {
+				index--;
+				if(index < 0) {
+					index = fileArr.length - 1;
+				}
+				document.getElementById("pic").src = fileArr[index];
+			}
+
+		</script>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		#picBox {
+			margin: 100px auto;
+			width: 600px;
+			height: 400px;
+		}
+		
+		#pic {
+			width: 600px;
+			height: 400px;
+		}
+		
+		#buttonBox {
+			width: 150px;
+			margin: 10px auto;
+		}
+	</style>
+
+	<body>
+		<div id="picBox">
+			<img src=""  id="pic" >
+			<script>
+//				document.write("<img src='' id='pic'>");
+				document.getElementById("pic").src = fileArr[0]; //use a non asyonous function
+				console.log("%d is aa file", fileArr.length);
+			</script>
+			
+			<div id="buttonBox">
+				<input type="button" value="上一张" onclick=pre()>
+				<input type="button" value="下一张" onclick=next()>
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" value="刷新" onclick=document.location.reload()>
+			</div>
+		</div>
+
+	</body>
+
+</html>
