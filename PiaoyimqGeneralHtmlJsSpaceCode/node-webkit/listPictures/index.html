@@ -5,17 +5,18 @@
 		<meta charset="UTF-8">
 		<title>看图</title>
 		<script>
-			function getImgList() {
+			
+			function getImgList(pics_path) {
 				var fs = require("fs");
 				var path = require("path");
-				var specificPath= "C:\\Users\\Administrator\\Desktop\\pic";//path.resolve()
-				var li = fs.readdirSync(specificPath);
+				
+				var li = fs.readdirSync(pics_path);
 				console.log(li);
 				var imgArr = [];
 				for(var i = 0; i < li.length; i++) {
-					stats = fs.statSync(path.join(specificPath, li[i]));
+					stats = fs.statSync(path.join(pics_path, li[i]));
 					if(stats.isFile() && (li[i].indexOf(".jpg") >= 0)) {
-						imgArr.push("file:///"+(path.join(specificPath, li[i])));
+						imgArr.push("file:///"+(path.join(pics_path, li[i])));
 					}
 				}
 
@@ -23,26 +24,39 @@
 				return imgArr;
 			}
 
-			var fileArr = getImgList();
-
+			var fileArr = getImgList("C:/Users/Administrator/Desktop/pic");
 			var index = 0;
+			
+			function scan_pics()
+			
+			{
+				pic_path=document.getElementById("inputFolderBrowse").value;
+//				alert(pic_path);
+				fileArr = getImgList(pic_path);
+				index = 0;
+//				alert(fileArr);
+			}
 
+			
 			function next() {
 				index++;
-				if(index == fileArr.length) {
+				if(index >= fileArr.length) {
 					index = 0;
 				}
+
 				document.getElementById("pic").src = fileArr[index];
 			}
 
 			function pre() {
 				index--;
-				if(index < 0) {
+				if(index < 0) 
+				{
 					index = fileArr.length - 1;
 				}
 				document.getElementById("pic").src = fileArr[index];
 			}
-
+						
+			
 		</script>
 	</head>
 	<style>
@@ -52,14 +66,14 @@
 		}
 		
 		#picBox {
-			margin: 100px auto;
-			width: 600px;
-			height: 400px;
+			margin: 10px auto;
+			width: 1300px;
+			height: 100px;
 		}
 		
 		#pic {
-			width: 600px;
-			height: 400px;
+			width: auto;
+			height: 600px;
 		}
 		
 		#buttonBox {
@@ -69,6 +83,7 @@
 	</style>
 
 	<body>
+		<input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" onchange="scan_pics()"/>
 		<div id="picBox">
 			<!--输入文件夹路径：<input type="text" id="file" value="C:\\Users\\Administrator\\Desktop\\pic">
 			<input type="submit" value="Submit" onclick="setPath()">-->
