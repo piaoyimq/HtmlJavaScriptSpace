@@ -5,18 +5,17 @@
 		<meta charset="UTF-8">
 		<title>看图</title>
 		<script>
-			
-			function getImgList(pics_path) {
+			function getImgList() {
 				var fs = require("fs");
 				var path = require("path");
-				
-				var li = fs.readdirSync(pics_path);
+				var specificPath= "C:\\Users\\ezhweib\\Pictures\\screenshot";//path.resolve()
+				var li = fs.readdirSync(specificPath);
 				console.log(li);
 				var imgArr = [];
 				for(var i = 0; i < li.length; i++) {
-					stats = fs.statSync(path.join(pics_path, li[i]));
+					stats = fs.statSync(path.join(specificPath, li[i]));
 					if(stats.isFile() && (li[i].indexOf(".jpg") >= 0)) {
-						imgArr.push("file:///"+(path.join(pics_path, li[i])));
+						imgArr.push("file:///"+(path.join(specificPath, li[i])));
 					}
 				}
 
@@ -24,85 +23,166 @@
 				return imgArr;
 			}
 
-			var fileArr = getImgList("C:/Users/Administrator/Desktop/pic");
-			var index = 0;
-			
-			function scan_pics()
-			
-			{
-				pic_path=document.getElementById("inputFolderBrowse").value;
-//				alert(pic_path);
-				fileArr = getImgList(pic_path);
-				index = 0;
-//				alert(fileArr);
-			}
+			var fileArr = getImgList();
 
-			
+			var index = 0;
+
 			function next() {
 				index++;
-				if(index >= fileArr.length) {
+				if(index == fileArr.length) {
 					index = 0;
 				}
-
 				document.getElementById("pic").src = fileArr[index];
 			}
 
 			function pre() {
 				index--;
-				if(index < 0) 
-				{
+				if(index < 0) {
 					index = fileArr.length - 1;
 				}
 				document.getElementById("pic").src = fileArr[index];
 			}
-						
-			
 		</script>
 	</head>
 	<style>
 		* {
-			margin: 0;
-			padding: 0;
+			/*margin: 0;
+			padding: 0;*/
+			text-align:center;
 		}
 		
 		#picBox {
-			margin: 10px auto;
-			width: 1300px;
-			height: 100px;
+			margin: 20px ;
+		   	   /*padding-top:0 auto;*/
+		 	/*position:relative;*/
+	/*　　　　	top:50%;*/
+			
+			 /*top: 50% auto;*/
+			  /*margin-top: 5% ;*/
+		   /*text-align:center;*/
+		   /*display: block;
+			margin: 10px ;
+			 	/*margin: 0 auto;
+		   	display:block; */
+			/*width: 600px ;
+			height: 400px;*/
 		}
 		
 		#pic {
-			width: auto;
-			height: 600px;
+		   margin: 0 auto;
+		   	width:auto;			
+			height:auto;
+			max-width:80%;
+			max-height:80%;
+			overflow:hidden;
+			
+			position: absolute;
+			top:15%
+			bottom: 15%;
+			left: 10%;
+			right: 10%;
+			
+					/*vertical-align:middle;*/
+			/*width:auto !important;*/
+			
+			/*position: absolute;*/
+			/*left: auto;*/
+			/*align-content: center;*/
+			/*margin-left: auto;*/
+			/*margin-bottom: 0;*/
+			/*margin-top: 0 auto;
+			display:block;
+			display: table-cell;  
+			vertical-align: middle;*/
+				
+			/*display: table-cell;
+			vertical-align: middle;
+		   	margin: 0 auto;
+		   	display:block; */
+		   /*text-align: center;
+			
+			
+			display: table-cell;*/
+			/*vertical-align: middle;
+			 text-align: center;*/
+			
+			/*width: auto !important;
+			/*max-width:900px;*/
+			/*overflow:hidden;
+			height: 400px !important;*/
+			
+			/*
+			 height:auto!important;
+			 min-height:400px;
+			overflow:hidden;
+			width: 1001px;
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 1px;*/
+			
+			/*max-width: 400px;
+			max-height: 900px;
+			height:auto;
+			zoom:expression( function(e) {
+				if(e.width>e.height) {
+					if (e.width>900) {
+						e.height=e.height*(900 /e.width);
+						e.width=900;
+					}
+				}
+				else {
+					if (e.height>900) {
+						e.width=e.width*(900 /e.height);
+						e.height=400;
+					}
+				}
+				e.style.zoom='1';
+			}
+			
+			(this));
+			overflow:hidden;
+		}*/
 		}
 		
 		#buttonBox {
+			/*align-content: center;*/
+			position: absolute;
+			right: 43%;
+			bottom: 0;
+			/*padding-left: 100px;
+			
+			top:100px*/
 			width: 150px;
 			margin: 10px auto;
 		}
 	</style>
 
 	<body>
-		<input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" onchange="scan_pics()"/>
+		<input type="file" id="addProjectBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
+		<input id="inputFolder" type="text" class="form-control" data-argName="inputFolder" required="required" />
 		<div id="picBox">
 			<!--输入文件夹路径：<input type="text" id="file" value="C:\\Users\\Administrator\\Desktop\\pic">
 			<input type="submit" value="Submit" onclick="setPath()">-->
+			
+			<label for="inputFolder" data-lang="INPUT_FOLDER"></label>
+          	
+         	 <span id="inputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" data-langtitle="BROWSE"></span>
+         	 <!--<input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />-->
 			<img src="" alt="No pictures" id="pic" >
 			<script>
 //				document.write("<img src='' id='pic'>");
 				document.getElementById("pic").src = fileArr[0]; //use a non asyonous function
 				console.log("%d is aa file", fileArr.length);
 			</script>
-			
+		</div>
 			<div id="buttonBox">
 				<input type="button" value="上一张" onclick=pre()>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="button" value="下一张" onclick=next()>
 				<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
 				<input type="button" value="刷新" onclick=document.location.reload()>
 			</div>
-		</div>
-
 	</body>
 
 </html>
