@@ -4,6 +4,7 @@
 	<head lang="en">
 		<meta charset="UTF-8">
 		<title>看图</title>
+		<script type="text/javascript" src="js/drag_map.js"></script>
 		<script>
 			function getImgList() {
 				var fs = require("fs");
@@ -26,22 +27,43 @@
 			var fileArr = getImgList();
 
 			var index = 0;
-
+			
+		
+			
+			
 			function next() {
 				index++;
 				if(index == fileArr.length) {
 					index = 0;
 				}
+//				document.getElementById("pic").style.maxWidth="80%";
+//				document.getElementById("pic").style.maxHeight="80%";
+				document.getElementById("pic").style.zoom=1;
 				document.getElementById("pic").src = fileArr[index];
-			}
+				zoomn = document.getElementById("pic").style.zoom;
+				z=parseFloat(zoomn);
+				console.log("____next zoom=%d", z)
 
+			}
+			
+
+			
 			function pre() {
 				index--;
 				if(index < 0) {
 					index = fileArr.length - 1;
 				}
+//				document.getElementById("pic").style.maxWidth="80%";
+//				document.getElementById("pic").style.maxHeight="80%";
+				document.getElementById("pic").style.zoom=1;
 				document.getElementById("pic").src = fileArr[index];
+				zoomp = document.getElementById("pic").style.zoom;
+				z=parseFloat(zoomp);
+				console.log("____pre zoom=%d", z)
+				
 			}
+
+
 		</script>
 	</head>
 	<style>
@@ -53,7 +75,7 @@
 		
 		#picBox {
 			margin: 20px ;
-		   	   /*padding-top:0 auto;*/
+		   	   padding-top:0 auto;
 		 	/*position:relative;*/
 	/*　　　　	top:50%;*/
 			
@@ -69,7 +91,7 @@
 		}
 		
 		#pic {
-		   margin: 0 auto;
+		   /*margin: 0 auto;
 		   	width:auto;			
 			height:auto;
 			max-width:80%;
@@ -80,68 +102,7 @@
 			top:15%
 			bottom: 15%;
 			left: 10%;
-			right: 10%;
-			
-					/*vertical-align:middle;*/
-			/*width:auto !important;*/
-			
-			/*position: absolute;*/
-			/*left: auto;*/
-			/*align-content: center;*/
-			/*margin-left: auto;*/
-			/*margin-bottom: 0;*/
-			/*margin-top: 0 auto;
-			display:block;
-			display: table-cell;  
-			vertical-align: middle;*/
-				
-			/*display: table-cell;
-			vertical-align: middle;
-		   	margin: 0 auto;
-		   	display:block; */
-		   /*text-align: center;
-			
-			
-			display: table-cell;*/
-			/*vertical-align: middle;
-			 text-align: center;*/
-			
-			/*width: auto !important;
-			/*max-width:900px;*/
-			/*overflow:hidden;
-			height: 400px !important;*/
-			
-			/*
-			 height:auto!important;
-			 min-height:400px;
-			overflow:hidden;
-			width: 1001px;
-			margin-right: auto;
-			margin-left: auto;
-			margin-top: 1px;*/
-			
-			/*max-width: 400px;
-			max-height: 900px;
-			height:auto;
-			zoom:expression( function(e) {
-				if(e.width>e.height) {
-					if (e.width>900) {
-						e.height=e.height*(900 /e.width);
-						e.width=900;
-					}
-				}
-				else {
-					if (e.height>900) {
-						e.width=e.width*(900 /e.height);
-						e.height=400;
-					}
-				}
-				e.style.zoom='1';
-			}
-			
-			(this));
-			overflow:hidden;
-		}*/
+			right: 10%;*/
 		}
 		
 		#buttonBox {
@@ -157,10 +118,11 @@
 		}
 	</style>
 
-	<body>
+	<body >
 		<input type="file" id="addProjectBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
 		<input id="inputFolder" type="text" class="form-control" data-argName="inputFolder" required="required" />
-		<div id="picBox">
+		<div id="picBox" class="dragAble" name="block1" onMouseOver="dragObj=block1; drag=1;" style="z-index: 10;
+        left: 0px; width: 0px; position: absolute; top: 150px; height: 0px" onMouseOut="" drag="0">
 			<!--输入文件夹路径：<input type="text" id="file" value="C:\\Users\\Administrator\\Desktop\\pic">
 			<input type="submit" value="Submit" onclick="setPath()">-->
 			
@@ -168,9 +130,8 @@
           	
          	 <span id="inputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" data-langtitle="BROWSE"></span>
          	 <!--<input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />-->
-			<img src="" alt="No pictures" id="pic" >
+			<img onmousewheel="return onWheelZoom(this);" style="zoom: 1" src=""  alt="No pictures"  id="pic" >
 			<script>
-//				document.write("<img src='' id='pic'>");
 				document.getElementById("pic").src = fileArr[0]; //use a non asyonous function
 				console.log("%d is aa file", fileArr.length);
 			</script>
