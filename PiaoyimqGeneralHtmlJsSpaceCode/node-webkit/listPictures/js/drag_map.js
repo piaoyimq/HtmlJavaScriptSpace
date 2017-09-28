@@ -104,8 +104,7 @@ else
 	function onWheelZoom(obj) {
 //				max-width:80%;
 //			max-height:80%;
-//				document.getElementById("pic").style.maxWidth="500%";
-//				document.getElementById("pic").style.maxHeight="500%";
+				
 				console.log("____src=%s ", obj.src);
 				zoom = parseFloat(obj.style.zoom);
 				
@@ -120,5 +119,7 @@ else
 				
 				console.log("____zoom= false");
 				obj.style.zoom = tZoom;
+				document.getElementById("pic").style.maxWidth="500%";
+				document.getElementById("pic").style.maxHeight="500%";
 				return false;
 			}
