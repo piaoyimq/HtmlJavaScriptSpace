@@ -1,2 +1,2 @@
 # Html-JavaScript
-Store some general html and javascript code
+Store some general html and javascript code.
