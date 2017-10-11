@@ -1,22 +1,64 @@
 {
-  "name": "Boson Editor",
+
+  "name": "gui-demo",
+
   "main": "editor.html",
-  "single-instance": false,
-  "description": "Experimental editor",
-  "version": "0.1.0",
-  "window": {
-    "title": "Boson Editor",
-    "icon": "assets/boson/media/logo.png",
-    "toolbar": false,
-    "frame": true,
-    "width": 1280,
-    "height": 720,
-    "position": "mouse",
-    "min_width": 400,
-    "min_height": 200,
-    "show": false
+
+  "nodejs":true,
+
+  "width":100,
+
+  "height":200,
+
+   "window": {
+
+    "title": "GUI DEMO",
+
+    "toolbar": true, 
+
+    "width": 800, 
+
+    "height": 600,
+
+   "resizable":true,
+
+   "show_in_taskbar":true,
+
+   "frame":true,
+   "icon": "assets/boson/media/logo.png",
+
+   "kiosk":false
+
   },
-  "webkit": {
-    "plugin": false
+
+  "webkit":{
+
+  "plugin":true
+
   }
+
 }
+
+//
+//{
+//"name": "Boson Editor",
+//"main": "editor.html",
+//"single-instance": false,
+//"description": "Experimental editor",
+//"version": "0.1.0",
+//"window": {
+//  "title": "Boson Editor",
+//  "icon": "assets/boson/media/logo.png",
+//  "toolbar": false,
+//  "frame": true,
+//  "width": 1280,
+//  "height": 720,
+//  "position": "mouse",
+//  "min_width": 400,
+//  "min_height": 200,
+//  "show": false
+//},
+//"webkit": {
+//  "plugin": false
+//}
+//}

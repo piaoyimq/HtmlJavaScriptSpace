@@ -32,7 +32,7 @@ var plugins = {};
     currentViewport: 1,
     currentSubView: [],
     currentPaneMode: "single",
-    app_dir: path.resolve(path.dirname()),
+    app_dir: path.resolve(path.dirname("")),
     cmTheme: false,
     ui_theme_element: false,
     platform: process.platform
