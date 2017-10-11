@@ -1,0 +1,17 @@
+{
+  "theme": "mdn-like",
+  "bosontheme": "light",
+  "tabSize": 2,
+  "indentWithTabs": true,
+  "fontSize": 14,
+  "lineWrapping": true,
+  "sidebarWidth": 190,
+  "plugins": {
+    "btrace": {
+      "active": false
+    },
+    "hello-world": {
+      "active": false
+    }
+  }
+}
