@@ -2417,7 +2417,7 @@ var plugins = {};
 
       switch ( args.length ) {
         case 1:
-
+		console.log("____1");
           //Is first arg file or directory?
           try {
             argCountType = fs.lstatSync(args[0]);
@@ -2435,7 +2435,7 @@ var plugins = {};
 
         break;
         case 2:
-
+			console.log("____2");
           //Open file and directory.
           boson.working_dir = args[0];
           bs.openFileFromPath(args[0] + "/" + args[1]);
@@ -2444,9 +2444,13 @@ var plugins = {};
       }
 
     } else {
+    	
       if ( process.platform === "win32" ) {
+      	console.log("____if");
         boson.working_dir = process.env['USERPROFILE'];
       } else {
+      	console.log("____else");
+      	
         boson.working_dir = process.env.PWD;
       }
     }

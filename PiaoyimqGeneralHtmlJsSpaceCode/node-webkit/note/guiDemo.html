@@ -1,0 +1,35 @@
+<html>
+
+<head>
+
+    <title>gui</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="nativemenu.js"></script>
+</head>
+
+<body >
+
+    <h1>Hello GUI Menue</h1>
+
+    <script>
+    	var gui = require('nw.gui');
+    	 var win = gui.Window.get();
+    passObject = {
+      gui: gui,
+      win: win,
+      bs: this,
+//    boson: boson,
+//    elements: elements,
+//    config: config
+    };
+    
+    var nativemenu=require(process.cwd() + "/nativemenu.js");
+   nativemenu.init(passObject); 
+
+    
+    </script> 
+
+</body>
+
+</html>
