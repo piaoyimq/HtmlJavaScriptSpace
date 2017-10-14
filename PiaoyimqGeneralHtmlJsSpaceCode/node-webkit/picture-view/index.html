@@ -40,15 +40,15 @@
 			}
 			
 			.box {
-				color: black;
-				background-color: #3e8e41;
+				/*color: black;*/
+				/*background-color: #3e8e41;*/
 				width: 100%;
 				height: 100%;
 				overflow: auto;
 			}
 			
 			.wrp4 {
-				background-color: red;
+				/*background-color: red;*/
 				display: table;
 			}
 			
@@ -71,19 +71,25 @@
 				left: 5%;
 			}
 				.left_side {
+				margin: 0;
+				padding: 0;
+				border: 0;
 				position: absolute;
 				left: 0px;
-				top:49%;
+				top:0px;
 				width: 5%;
-				/*background: yellow;*/
+				height: 100%;
+				background: yellow;
 				text-align: center;
+				display:table;
 			}
 
 			.right_side {
 				position: absolute;
 				right: 0px;
-				top:49%;
+				top:0px;
 				width: 5%;
+				height: 100%;
 				/*background: yellow;*/
 				text-align: center;
 			}
@@ -96,32 +102,119 @@
 				padding-right: 0;*/
 			}
 			
-			.btn-circle.btn-lg {
+			/*.btn-circle.btn-lg {
   width: 100%;
   height: 50px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 25px;
+  background: white;
+  border-square:25px;
+  border: 0;
+ 
+}*/
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;          
+}
+.btn-w3r {
+			width: 100%;
+			height: 300px;
+			border: 0;
+			/*-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;*/
+			/*border-radius: 50%;*/
+			/*background: white; /* 旧版浏览器 */*/
+			/*background: -moz-linear-gradient(top,  #cb60b3 0%, #ad1283 50%, #de47ac 100%); /* FF3.6+ */*/
+			/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cb60b3), color-stop(50%,#ad1283), color-stop(100%,#de47ac)); /   *   Chrome,Safari4+ */*/
+			/*background: -webkit-linear-gradient(top,  #cb60b3 0%,#ad1283 50%,#de47ac 100%); /* Chrome10+,Safari5.1+ */*/
+			/*background: -o-linear-gradient(top,  #cb60b3 0%,#ad1283 50%,#de47ac 100%); /* Opera 11.10+ */*/
+			/*background: -ms-linear-gradient(top,  #cb60b3 0%,#ad1283 50%,#de47ac 100%); /* IE10+ */*/
+			/*background: linear-gradient(to bottom,  #cb60b3 0%,#ad1283 50%,#de47ac 100%); /* W3C */*/
+			/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#de47ac',GradientType=0 ); /* IE6-9 */*/
+			/*color:white;*/
+		}
+		.btn-w3r:hover {
+			background: blanchedalmond/*#333*/; /* 旧版浏览器 */
+			color:#e75616;
+		}
+		
+		a .a_before{
+			margin: 0;
+		}
+			
+			.a_before {
+				/*padding: 30px;*/
+				/*针对此实例的代码*/
+				/*display:table;
+				width: 100%;
+				height: 100%;
+				background: greenyellow;*/
+				/*为什么不给html一个min-height:100%，而是height，因为通过min-height给的高度，子元素无法对其做高度百分比计算*/
+				/*针对此实例的代码 End*/
+				/*border: solid 3px green;*/
+				
+			}
+			
+			a{
+				width: 1000%;
+				height: 100%;
+				line-height: 100%;
+				background: red;
+				display: table;
+				/*display: table-row;*/
+				
+				/*display: table-column;*/
+				
+			}
+			
+		a:link,a:visited
+{
+	/*display:block;*/
+	
+	/*font-weight:bold;
+	color:#FFFFFF;
+	background-color:#98bf21;
+	height: 500px;
+	text-align:center;
+	padding:400px 10px;
+	text-decoration:none;
+	 overflow:hidden;*/
+}
+a:hover,a:active
+{
+	background-color:#7A991A;
 }
 		</style>
 	</head>
 
 	<body>
-		<div class="left_side">
-	        <button type="button" class="btn btn-default btn-lg  btn-circle" style="width:100%;">
-	          <span class="glyphicon glyphicon-chevron-left" ></span>
-	        </button>
+		<div class="left_side ">
+	        <!--<button type="button" class="btn btn-default btn-lg   btn-w3r" style="width:auto;">
+	          <span class="glyphicon glyphicon-chevron-left" style="color: black;" ></span>
+	        </button>-->
+	        <div class="a_before">
+	        <div class="active">
+	         <a href="#">
+          <span class="glyphicon glyphicon-chevron-left " ></span>
+        </a>
+        </div>
+		</div>
 		</div>
 		<div class="wrp wrp4">
 			<div class="subwrp4">
 				<div class="box box4 ">
 					<div class="">
                 <div class="container">
-                   <div class="row" style="border: solid 3px red; margin: 0; padding: 0;">
+                   <div class="row" style=" margin: 0; padding: 0;">
 					
 
-						<div class="row mycol-border " style="list-style-type:none">
+						<div class="row" style="list-style-type:none">
 							<div class="col-lg-4 col-md-3 col-sm-3 col-xs-4 col-xxs-12 ">
 								<img class="img-responsive" src="images/01.jpg">
 								<div class="text">......</div>
@@ -162,8 +255,8 @@
 			</div>
 		</div>
 <div class="right_side">
-			 <button type="button" class="btn btn-default btn-lg  btn-circle" style="width:100%;">
-	          <span class="glyphicon glyphicon-chevron-right" ></span>
+			 <button type="button" class="btn btn-default btn-lg  btn-w3r" style="width:auto; max-width: 100%;">
+	          <span class="glyphicon glyphicon-chevron-right " style="color: black;"></span>
 	        </button>
 		</div>
 		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
