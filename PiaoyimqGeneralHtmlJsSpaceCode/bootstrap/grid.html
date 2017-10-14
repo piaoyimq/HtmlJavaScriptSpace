@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"> 
+   <title>Bootstrap 实例 - 响应式的列重置</title>
+   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+   <div class="row" >
+      <div class="col-xs-6 col-sm-3" 
+         style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+      <div class="col-xs-6 col-sm-3" 
+         style="background-color: #dedef8;box-shadow: 
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat.
+         </p>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+            eiusmod tempor incididunt ut. 
+         </p>
+      </div>
+
+      <div class="clearfix visible-xs"></div>
+
+      <div class="col-xs-6 col-sm-3" 
+         style="background-color: #dedef8;
+         box-shadow:inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+            laboris nisi ut aliquip ex ea commodo consequat. 
+         </p>
+      </div>
+      <div class="col-xs-6 col-sm-3" 
+         style="background-color: #dedef8;box-shadow: 
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+            enim ad minim 
+         </p>
+      </div>
+   </div>
+</div>
+ <div class = "container">
+        <div class = "row">
+            <div class = "col-xs-3 col-md-6 col-lg-4" style="border:2px solid green;">
+                this提供了一种优雅的方式来隐式“传递”一个对象引用，因此可以将API设计得更加简洁并且易于复用。随着使用模式越来越复杂，
+                显式传递上下文对象会让代码变得混乱，而使用this则不会这样。（this引用的是函数据以执行的环境对象）
+            </div>
+            <div class = "col-xs-9 col-md-6 col-lg-8" style="border:2px solid green;">
+                在调用函数时，我们会将调出处执行环境对象传给this，如此处调用fun(2)，处在全局作用域中，因此this会指向window。既然这样，
+                我们可以通过强制this指向fun函数对象来解决这个问题，JS提供了两个函数，apply()和call()函数.apply()方法接收两个参数：
+                一个是在其中运行函数的作用域（可以理解为是this的值），另一个是参数数组（可以是arguments或者是数组的实例）
+                call()方法与apply()方法的作用相同，区别仅在于接收参数的方式不同。第一个参数都是this的值，
+                但是使用call()方法，必须要将传递的参数逐个列举出来。
+            </div>
+        </div>
+    </div>
+</body>
+</html>
